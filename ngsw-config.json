@@ -27,5 +27,19 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "carquery-api",
+      "urls": [
+        "https://www.carqueryapi.com/api/0.3/"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 10000,
+        "maxAge": "10h",
+        "timeout": "5s"
+      }
+    }
   ]
 }

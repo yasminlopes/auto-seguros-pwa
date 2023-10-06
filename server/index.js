@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors({ origin: true, credentials: true }));
 
-app.route('/api/seguro').post(salvarSeguro);
+app.route('/api/seguros').post(salvarSeguro);
 
 app.route('/api/seguros').get(listarSeguros);
 

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { MarcaCarro } from 'src/app/models/marca-carro.model';
 import { Seguro } from 'src/app/models/seguro-model';
 import { MarcaCarroService } from 'src/app/services/marca-carro/marca-carro.service';
+import { PushNotificationsService } from 'src/app/services/push-notifications/push-notifications.service';
 import { SeguroService } from 'src/app/services/seguro/seguro.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class CadastroSeguroComponent implements OnInit {
 
   constructor(
     private marcaCarroService: MarcaCarroService,
-    private seguroService: SeguroService
+    private seguroService: SeguroService,
+    private pushNotificationsService: PushNotificationsService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +29,9 @@ export class CadastroSeguroComponent implements OnInit {
     this.marcasCarro$ = this.marcaCarroService.getMarcas();
   }
 
-  public enviarNotificacao() {}
+  public enviarNotificacao() {
+    this.pushNotificationsService.enviar();
+  }
 
   public adicionar() {
     this.seguro.id = this.seguro.placaCarro;

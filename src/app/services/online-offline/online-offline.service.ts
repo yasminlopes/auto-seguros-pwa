@@ -6,23 +6,23 @@ import { Observable, Subject } from 'rxjs';
 })
 export class OnlineOfflineService {
 
-  private statusConexao$ = new Subject<boolean>();
+  private trocaConexao$ = new Subject<boolean>();
 
   constructor() {
-    window.addEventListener('online', () => console.log(this.atualizarStatusConexao()))
-    window.addEventListener('offline', () => console.log(this.atualizarStatusConexao()))
-   }
+    window.addEventListener('online', () => this.atualizaStatusConexao());
+    window.addEventListener('offline', () => this.atualizaStatusConexao());
+  }
 
-   public get isOnline(): boolean {
+  get isOnline() {
     return !!window.navigator.onLine;
-   }
+  }
 
-   public get statusConexao(): Observable<boolean> {
-    return this.statusConexao$.asObservable();
-   }
+  get trocaConexao() {
+    return this.trocaConexao$.asObservable();
+  }
 
-   public atualizarStatusConexao() {
-    this.statusConexao$.next(this.isOnline)
-   }
+  atualizaStatusConexao() {
+    this.trocaConexao$.next(window.navigator.onLine);
+  }
   
 }

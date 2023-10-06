@@ -2,7 +2,6 @@ const { SEGUROS } = require('./in-memory-db');
 
 exports.salvarSeguro = (req, res) => {
   const seguro = req.body;
-console.log(seguro)
   SEGUROS.push(seguro);
 
   res.status(200).json({ message: 'Seguro adicionado com sucesso!' });

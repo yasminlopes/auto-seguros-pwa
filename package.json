@@ -4,9 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist/auto-seguros-pwa",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "predeploy": "ng build --configuration production --base-href=/auto-seguros-pwa/",
+    "deploy": "npx -y gh-pages -d dist/auto-seguros-pwa"
   },
   "private": true,
   "dependencies": {

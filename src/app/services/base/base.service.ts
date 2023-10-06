@@ -77,7 +77,7 @@ export abstract class BaseService<T extends { id: string }>{
   }
 
   private ouvirStatusConexao() {
-    this._onlineOfflineService.statusConexao.subscribe((online) => {
+    this._onlineOfflineService.trocaConexao.subscribe((online) => {
       if (online) {
         this.enviarIndexedDbParaApi();
       } else {

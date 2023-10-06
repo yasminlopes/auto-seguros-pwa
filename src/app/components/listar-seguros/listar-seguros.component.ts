@@ -17,7 +17,7 @@ export class ListarSegurosComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.seguros$ = this.seguroService.listarSeguros()
+    this.seguros$ = this.seguroService.listarTabelas()
   }
 
 }

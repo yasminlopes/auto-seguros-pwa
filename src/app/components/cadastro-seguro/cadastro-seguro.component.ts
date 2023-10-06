@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { MarcaCarro } from 'src/app/models/marca-carro.model';
 import { Seguro } from 'src/app/models/seguro-model';
 import { MarcaCarroService } from 'src/app/services/marca-carro/marca-carro.service';
+import { SeguroService } from 'src/app/services/seguro/seguro.service';
 
 @Component({
   selector: 'app-cadastro-seguro',
@@ -13,21 +14,22 @@ export class CadastroSeguroComponent implements OnInit {
   public seguro = new Seguro();
   public marcasCarro$: Observable<MarcaCarro[]>;
 
-  constructor(private marcaCarroService: MarcaCarroService) {}
+  constructor(
+    private marcaCarroService: MarcaCarroService,
+    private seguroService: SeguroService
+  ) {}
 
   ngOnInit(): void {
-    this.listarMarcas()
+    this.listarMarcas();
   }
 
   private listarMarcas() {
-    this.marcasCarro$ = this.marcaCarroService.getMarcas()
+    this.marcasCarro$ = this.marcaCarroService.getMarcas();
   }
 
-  public enviarNotificacao() {
-
-  }
+  public enviarNotificacao() {}
 
   public adicionar() {
-
+    this.seguroService.salvarApi(this.seguro)
   }
 }

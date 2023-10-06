@@ -32,7 +32,8 @@
     {
       "name": "carquery-api",
       "urls": [
-        "https://www.carqueryapi.com/api/0.3/"
+        "https://www.carqueryapi.com/api/0.3/*",
+        "http://localhost:9000/*"
       ],
       "cacheConfig": {
         "strategy": "performance",

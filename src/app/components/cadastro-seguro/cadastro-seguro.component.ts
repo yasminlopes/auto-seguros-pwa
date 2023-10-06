@@ -30,6 +30,7 @@ export class CadastroSeguroComponent implements OnInit {
   public enviarNotificacao() {}
 
   public adicionar() {
+    this.seguro.id = this.seguro.placaCarro;
     this.seguroService.salvarApi(this.seguro)
   }
 }
